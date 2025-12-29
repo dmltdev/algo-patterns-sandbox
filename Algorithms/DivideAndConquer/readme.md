@@ -1,60 +1,47 @@
-# Algorithm: Divide and Conquer
+# Divide and Conquer
 
-## Steps
+## Pattern
 
-- Divide: Divide the problem into sub-problems with recursion.
-- Conquer: Solve the smaller sub-problems recursively. When the subproblem is small enough, solve it directly.
-- Combine: Combine the results of the sub-problems that are part of the recursive process to solve the actual problem.
+1. **Divide** - Break problem into smaller subproblems
+2. **Conquer** - Solve subproblems recursively (base case when small enough)
+3. **Combine** - Merge results from subproblems
 
-## How Divide-and-Conquer is different from other algorithms?
+## Key Characteristics
 
-Divide-and-Conquer:
+- Recursive approach
+- No memoization (unlike DP)
+- Each subproblem solved independently
+- Time complexity often O(n log n)
 
-- It divides a problem into smaller subproblems that are further solved recursively.
-- The result of each subproblem is not stored for future reference.
-- It is used when the same subproblem is not solved multiple times.
+## Common Problems
 
-Example:
+- **Binary Search** - O(log n)
+- **Merge Sort** - O(n log n)
+- **Quick Sort** - O(n log n) average, O(n²) worst
+- **Maximum Subarray** - O(n log n)
+- **Closest Pair of Points** - O(n log n)
 
-```typescript
-function fib(n: number): number {
-  if (n <= 0) return 0;
-  if (n === 1) return 1;
-  return fib(n - 1) + fib(n - 2);
-}
-```
-
-Dynamic Approach:
-
-- It tries to find the shortest way to a solution when solving a problem by going from the top down or the bottom up.
-- The result of each subproblem is stored for future reference.
-- It is used when the result of a subproblem is to be used multiple times in the future.
-
-Example:
+## Template
 
 ```typescript
-const mem: Record<number, number> = {};
-
-function fib(n: number): number {
-  if (n in mem) return mem[n];
-
-  switch (true) {
-    case n <= 0:
-      mem[n] = 0;
-      break;
-    case n === 1:
-      mem[n] = 1;
-      break;
-    default:
-      mem[n] = fib(n - 1) + fib(n - 2);
-      break;
+function divideConquer(problem) {
+  // Base case
+  if (problem.size <= threshold) {
+    return solveDirect(problem);
   }
-  return mem[n];
+
+  // Divide
+  const subproblems = divide(problem);
+
+  // Conquer
+  const results = subproblems.map((sub) => divideConquer(sub));
+
+  // Combine
+  return combine(results);
 }
 ```
 
-## Advantages of Divide-and-Conquer Algorithm
+## vs Dynamic Programming
 
-- Suitable for multiprocessing systems.
-- Makes efficient use of memory caches.
-- It simplifies common problems such as Tower of Hanoi, multiplication of two matrices, binary search, merge sort, quicksort, and so on.
+- **D&C**: No overlapping subproblems, no memoization
+- **DP**: Overlapping subproblems, uses memoization

@@ -20,8 +20,12 @@ end bubbleSort
 — complexity does not matter
 — short and simple code is preferred
 
-!In the optimized bubble sort algorithm, two extra variables may be used: flag "swapped" (becomes true if elements are swapped) and var "temp" (to hold the temp value of arr[i]). Hence, the space complexity will be O(2).
-!But we can use a destructuring assignment to get rid of the extra variable "temp".
+In the optimized bubble sort algorithm, two extra variables may be used: 
+- flag "swapped" (becomes true if elements are swapped) and 
+- var "temp" (to hold the temp value of arr[i]). 
+Hence, the space complexity will be O(2).
+
+But we can use a destructuring assignment to get rid of the extra variable "temp".
 
 */
 
@@ -32,7 +36,11 @@ export default function bubbleSort(arr: number[]): number[] {
     swapped = false;
     for (let i = 0; i < arr.length - 1; i++) {
       if (arr[i] > arr[i + 1]) {
-        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+        let temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        // or swap with destructuring
+        // [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
         swapped = true;
       }
     }
