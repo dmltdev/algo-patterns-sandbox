@@ -17,17 +17,23 @@ The selection sort is used when
 */
 
 export default function selectionSort(arr: number[]): number[] {
-  for (let i = 0; i < arr.length; i++) {
-    let lowest = i;
+  const n = arr.length;
 
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[lowest]) {
-        lowest = j;
+  for (let i = 0; i < n; i++) {
+    let minIndex = i;
+
+    for (let j = i + 1; j < n; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
       }
     }
 
-    if (lowest !== i) {
-      [arr[i], arr[lowest]] = [arr[lowest], arr[i]];
+    if (minIndex !== i) {
+      let temp = arr[i];
+      arr[i] = arr[minIndex];
+      arr[minIndex] = temp;
+      // or swap with destructuring
+      // [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
     }
   }
 

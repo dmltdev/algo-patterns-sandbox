@@ -25,7 +25,7 @@ describe("Factorial", () => {
     expect(Factorial(20)).toBe(2432902008176640000);
   });
 
-  it("calculates factorial in non-integer scenarios", () => {
+  it("throws error for non-integer input", () => {
     expect(() => Factorial(5.5)).toThrow();
   });
 });
