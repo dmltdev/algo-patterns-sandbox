@@ -5,7 +5,7 @@ import LinkedList, {
 } from "./DoublyLinkedList.ts";
 
 describe("Doubly Linked List", () => {
-  let linkedList;
+  let linkedList: LinkedList<number>;
 
   beforeEach(() => {
     linkedList = new LinkedList();

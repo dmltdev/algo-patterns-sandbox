@@ -4,33 +4,8 @@ export interface ListNode<T> {
   next: null | ListNode<T>;
 }
 
-interface ListHeadNode<T> extends ListNode<T> {
-  next: ListNode<T>;
-}
-
-interface ListTailNode<T> extends ListNode<T> {
-  prev: ListNode<T>;
-}
-
-interface ListInnerNode<T> extends ListNode<T> {
-  prev: ListNode<T>;
-  next: ListNode<T>;
-}
-
 function assertNode<T>(node: null | ListNode<T>): node is ListNode<T> {
   return node !== null;
-}
-
-function assertHeadNode<T>(node: ListNode<T>): node is ListHeadNode<T> {
-  return node.next !== null;
-}
-
-function assertTailNode<T>(node: ListNode<T>): node is ListTailNode<T> {
-  return node.prev !== null;
-}
-
-function assertInnerNode<T>(node: ListNode<T>): node is ListInnerNode<T> {
-  return node.prev !== null && node.next !== null;
 }
 
 export default class LinkedList<T> {
@@ -126,7 +101,7 @@ export default class LinkedList<T> {
     } else return null;
   }
 
-  getHead(): null | ListNode<T>{
+  getHead(): null | ListNode<T> {
     return this.head;
   }
 
