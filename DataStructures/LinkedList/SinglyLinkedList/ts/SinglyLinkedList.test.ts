@@ -1,4 +1,5 @@
-import SinglyLinkedList from "./SinglyLinkedList.ts";
+import { describe, test, beforeEach, expect } from "vitest";
+import { SinglyLinkedList } from "./SinglyLinkedList.ts";
 
 describe("Singly Linked List", () => {
   let list: SinglyLinkedList<number>;

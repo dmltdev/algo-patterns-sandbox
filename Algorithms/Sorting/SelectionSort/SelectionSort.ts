@@ -16,7 +16,7 @@ The selection sort is used when
 — cost of writing to a memory matters like in flash memory (number of writes/swaps is O(n) as compared to O(n2) of bubble sort)
 */
 
-export default function selectionSort(arr: number[]): number[] {
+export function selectionSort(arr: number[]): number[] {
   const n = arr.length;
 
   for (let i = 0; i < n; i++) {

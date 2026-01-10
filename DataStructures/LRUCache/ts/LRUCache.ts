@@ -26,7 +26,7 @@ export class Node<K extends KeyType, V extends ValueType> {
   }
 }
 
-export default class LRUCache<K extends KeyType, V extends ValueType> {
+export class LRUCache<K extends KeyType, V extends ValueType> {
   private cap: number;
   private cache: Map<K, Node<K, V>>;
   private left: Node<K, V>;

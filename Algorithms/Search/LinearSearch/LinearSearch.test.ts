@@ -1,6 +1,6 @@
-import linearSearch from "./LinearSearch";
+import { linearSearch } from "./LinearSearch";
+import { describe, it, expect } from "vitest";
 
-//Array with numbers 1-100
 const arr = Array.from(Array(100 + 1).keys()).slice(1);
 
 function expectLinearSearchResults(arr: number[], cases: [number, number][]) {
@@ -9,7 +9,7 @@ function expectLinearSearchResults(arr: number[], cases: [number, number][]) {
   });
 }
 
-describe("Exponential Search", () => {
+describe("Linear Search", () => {
   it("Element found", () => {
     expectLinearSearchResults(arr, [
       [1, 0],

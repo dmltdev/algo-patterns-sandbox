@@ -1,7 +1,7 @@
-import binarySearch from "./BinarySearch";
+import { binarySearch } from "./BinarySearch";
+import { describe, it, expect } from "vitest";
 
-//Array with numbers 1-100
-const arr = Array.from(Array(100 + 1).keys()).slice(1); //?
+const arr = Array.from(Array(100 + 1).keys()).slice(1);
 
 describe("Binary Search", () => {
   it("Element is found", () => {

@@ -14,7 +14,7 @@ export class Node<T> {
   }
 }
 
-export default class CircularLinkedList<T> {
+export class CircularLinkedList<T> {
   private head: Node<T> | null;
   private tail: Node<T> | null;
   private length: number;

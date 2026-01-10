@@ -7,7 +7,7 @@ and the potential for introducing bugs.
 I enjoy using the default implementation of a linear search instead.
 */
 
-export default function SentinelLinearSearch(
+export function sentinelLinearSearch(
   arr: number[],
   key: number
 ): number {

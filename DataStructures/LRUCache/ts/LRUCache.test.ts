@@ -1,4 +1,5 @@
-import LRUCache from "./LRUCache.ts";
+import { LRUCache } from "./LRUCache.ts";
+import { describe, test, beforeEach, expect } from "vitest";
 
 describe("LRUCache", () => {
   let cache;

@@ -25,7 +25,7 @@ end insertionSort
 
 */
 
-export default function insertionSort(arr: number[]): number[] {
+export function insertionSort(arr: number[]): number[] {
   for (let step = 1; step < arr.length; step++) {
     const key = arr[step];
     let j = step - 1;

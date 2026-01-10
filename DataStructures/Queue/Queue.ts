@@ -1,4 +1,4 @@
-class Node<T> {
+class Node<T = unknown> {
   public value: T;
   public next: Node<T> | undefined;
 
@@ -8,7 +8,7 @@ class Node<T> {
   }
 }
 
-export default class Queue<T> {
+export class Queue<T = unknown> {
   public length: number;
   private head: Node<T> | undefined;
   private tail: Node<T> | undefined;

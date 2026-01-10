@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi, afterAll } from "vitest";
 import LinkedList, {
   listFromValues,
   printLinkedList,
@@ -5,10 +6,15 @@ import LinkedList, {
 } from "./DoublyLinkedList.ts";
 
 describe("Doubly Linked List", () => {
+  const consoleMock = vi.spyOn(console, "log").mockImplementation(() => {});
   let linkedList: LinkedList<number>;
 
   beforeEach(() => {
     linkedList = new LinkedList();
+  });
+
+  afterAll(() => {
+    consoleMock.mockReset();
   });
 
   it("#Instantiates", () => {
@@ -19,26 +25,26 @@ describe("Doubly Linked List", () => {
 
   it("#insertAtHead", () => {
     linkedList.insertAtHead(1);
-    expect(linkedList.head.value).toBe(1);
+    expect(linkedList.head?.value).toBe(1);
     expect(linkedList.length).toBe(1);
 
     linkedList.insertAtHead(2);
-    expect(linkedList.head.value).toBe(2);
-    expect(linkedList.head.next.value).toBe(1);
+    expect(linkedList.head?.value).toBe(2);
+    expect(linkedList.head?.next?.value).toBe(1);
     expect(linkedList.length).toBe(2);
   });
 
   it("#insertAtTail", () => {
     linkedList.insertAtTail(1);
-    expect(linkedList.tail.value).toBe(1);
-    expect(linkedList.head.value).toBe(1);
+    expect(linkedList?.tail?.value).toBe(1);
+    expect(linkedList?.head?.value).toBe(1);
     expect(linkedList.length).toBe(1);
 
     linkedList.insertAtTail(2);
-    expect(linkedList.tail.value).toBe(2);
-    expect(linkedList.tail.prev.value).toBe(1);
-    expect(linkedList.head.value).toBe(1);
-    expect(linkedList.head.next.value).toBe(2);
+    expect(linkedList?.tail?.value).toBe(2);
+    expect(linkedList?.tail?.prev?.value).toBe(1);
+    expect(linkedList?.head?.value).toBe(1);
+    expect(linkedList?.head?.next?.value).toBe(2);
     expect(linkedList.length).toBe(2);
   });
 
@@ -47,7 +53,7 @@ describe("Doubly Linked List", () => {
     expect(linkedList.length).toBe(0);
 
     linkedList.insertAtTail(1);
-    expect(linkedList.pop().value).toBe(1);
+    expect(linkedList.pop()?.value).toBe(1);
     expect(linkedList.length).toBe(0);
     expect(linkedList.head).toBeNull();
     expect(linkedList.tail).toBeNull();
@@ -55,9 +61,9 @@ describe("Doubly Linked List", () => {
     linkedList.insertAtTail(1);
     linkedList.insertAtTail(2);
     linkedList.insertAtTail(3);
-    expect(linkedList.pop().value).toBe(3);
-    expect(linkedList.pop().value).toBe(2);
-    expect(linkedList.pop().value).toBe(1);
+    expect(linkedList.pop()?.value).toBe(3);
+    expect(linkedList.pop()?.value).toBe(2);
+    expect(linkedList.pop()?.value).toBe(1);
     expect(linkedList.pop()).toBeNull();
     expect(linkedList.length).toBe(0);
     expect(linkedList.head).toBeNull();
@@ -112,12 +118,12 @@ describe("Doubly Linked List", () => {
     linkedList.insertAtTail(1);
     linkedList.insertAtTail(2);
     linkedList.insertAtTail(3);
-    expect(linkedList.getHead().value).toBe(1);
-    expect(linkedList.getTail().value).toBe(3);
+    expect(linkedList.getHead()?.value).toBe(1);
+    expect(linkedList.getTail()?.value).toBe(3);
 
     linkedList.reverse();
-    expect(linkedList.getHead().value).toBe(3);
-    expect(linkedList.getTail().value).toBe(1);
+    expect(linkedList.getHead()?.value).toBe(3);
+    expect(linkedList.getTail()?.value).toBe(1);
   });
 
   it("Handles generic types", () => {
@@ -143,34 +149,22 @@ describe("Doubly Linked List", () => {
   it("Prints linked list", () => {
     const values = [1, 2, 3];
     const newList = listFromValues(...values);
-    // Redirect console.log output to capture it
-    const consoleLogSpy = jest.spyOn(console, "log").mockImplementation();
     printLinkedList(newList);
 
-    // Check if console.log was called with the correct values
-    expect(consoleLogSpy).toHaveBeenCalledTimes(values.length);
+    expect(console.log).toHaveBeenCalledTimes(values.length);
     values.forEach((value, index) => {
-      expect(consoleLogSpy).toHaveBeenNthCalledWith(index + 1, value);
+      expect(console.log).toHaveBeenNthCalledWith(index + 1, value);
     });
-
-    // Clean up the spy
-    consoleLogSpy.mockRestore();
   });
 
   it("Prints linked list in reverse", () => {
     const values = [1, 2, 3];
     const newList = listFromValues(...values);
-    // Redirect console.log output to capture it
-    const consoleLogSpy = jest.spyOn(console, "log").mockImplementation();
     printLinkedListInReverse(newList);
 
-    // Check if console.log was called with the correct values in reverse order
-    expect(consoleLogSpy).toHaveBeenCalledTimes(values.length);
+    expect(console.log).toHaveBeenCalledTimes(values.length);
     values.reverse().forEach((value, index) => {
-      expect(consoleLogSpy).toHaveBeenNthCalledWith(index + 1, value);
+      expect(console.log).toHaveBeenNthCalledWith(index + 1, value);
     });
-
-    // Clean up the spy
-    consoleLogSpy.mockRestore();
   });
 });

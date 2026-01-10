@@ -1,4 +1,5 @@
 import { TreeTraversal } from "./TreeTraversal";
+import { describe, test, beforeEach, afterEach, expect } from "vitest";
 
 describe("TreeTraversal", () => {
   let consoleOutput: string[] = [];

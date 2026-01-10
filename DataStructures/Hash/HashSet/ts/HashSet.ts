@@ -12,16 +12,13 @@ Hash set is an implementation of a set - a collection of unique keys.
 
 */
 
-import { createHash } from "crypto";
-import { create } from "domain";
-
 export type Input = string | number | symbol;
 
 export type Set = {
   [key: Input]: boolean;
 };
 
-export default function createHashSet() {
+export function createHashSet() {
   let hashSet: Set = {};
 
   return {

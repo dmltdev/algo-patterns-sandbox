@@ -1,6 +1,6 @@
-import mergeSort from "./MergeSort";
+import { mergeSort } from "./MergeSort";
+import { expect, describe, it } from "vitest";
 
-// Helper function to construct a test array of integers
 function shuffleIntegerArray(arr: number[]): void {
   const n = arr.length;
   for (let i = n - 1; i > 0; i--) {
@@ -10,7 +10,6 @@ function shuffleIntegerArray(arr: number[]): void {
   }
 }
 
-// Helper function to construct a test array of floating numbers
 function shuffleFloatingArray(arr: number[]): void {
   const n = arr.length;
   for (let i = n - 1; i > 0; i--) {
@@ -19,9 +18,6 @@ function shuffleFloatingArray(arr: number[]): void {
     arr[i] = Math.random() * 100 + arr[i];
   }
 }
-
-// TODO: Helper function to construct a linked list
-//! Or use an import statement from LinkedList when it is ready
 
 describe("Selection Sort", () => {
   it("Array of integers is sorted", () => {
@@ -42,4 +38,3 @@ describe("Selection Sort", () => {
     expect(mergeSort([])).toStrictEqual([]);
   });
 });
-

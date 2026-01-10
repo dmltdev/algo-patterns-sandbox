@@ -1,14 +1,15 @@
-import Queue from './Queue';
+import { describe, it, expect, beforeEach } from "vitest";
+import { Queue } from "./Queue";
 
-describe('Queue', () => {
-  let queue;
+describe("Queue", () => {
+  let queue: Queue;
 
   beforeEach(() => {
     const capacity = 3;
     queue = new Queue(capacity);
   });
 
-  it('enqueues and dequeues elements', () => {
+  it("enqueues and dequeues elements", () => {
     queue.enqueue(1);
     queue.enqueue(2);
     queue.enqueue(3);
@@ -19,7 +20,7 @@ describe('Queue', () => {
     expect(queue.dequeue()).toBeUndefined();
   });
 
-  it('returns the length of the queue', () => {
+  it("returns the length of the queue", () => {
     expect(queue.length).toBe(0);
 
     queue.enqueue(1);
@@ -30,7 +31,7 @@ describe('Queue', () => {
     expect(queue.length).toBe(1);
   });
 
-  it('peeks at the front element', () => {
+  it("peeks at the front element", () => {
     expect(queue.peek()).toBeUndefined();
 
     queue.enqueue(1);
@@ -45,7 +46,7 @@ describe('Queue', () => {
 
     queue.enqueue(1);
     expect(queue.isEmpty()).toBeFalsy();
-  })
+  });
 
   it("isFull checks if the queue is full", () => {
     expect(queue.isFull()).toBeFalsy();
@@ -53,7 +54,7 @@ describe('Queue', () => {
     queue.enqueue(2);
     queue.enqueue(3);
     expect(queue.isFull()).toBeTruthy();
-  })
+  });
 
   it("enqueue does not add items to the queue when capacity is reached", () => {
     queue.enqueue(1);
@@ -62,5 +63,5 @@ describe('Queue', () => {
     expect(queue.isFull()).toBeTruthy();
     expect(queue.enqueue(4)).toBe(null);
     expect(queue.peek()).toBe(1);
-  })
+  });
 });

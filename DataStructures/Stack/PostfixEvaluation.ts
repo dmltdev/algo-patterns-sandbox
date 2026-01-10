@@ -1,5 +1,5 @@
 "use strict";
-import Stack from "./Stack.ts";
+import { Stack } from "./Stack.ts";
 
 /* 
 Postfix expression is the expression of the form "a b operator" (like ab+) => a pair of operands is followed by an operator.

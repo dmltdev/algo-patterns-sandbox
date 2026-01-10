@@ -10,7 +10,7 @@ class Node<T> {
   }
 }
 
-export default class Stack<T> {
+export class Stack<T> {
   public length: number;
   private head: Node<T> | undefined;
 

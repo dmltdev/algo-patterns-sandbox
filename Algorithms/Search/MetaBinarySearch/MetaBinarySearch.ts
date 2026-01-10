@@ -1,4 +1,4 @@
-export default function MetaBinarySearch(arr: number[], key: number): number {
+export function metaBinarySearch(arr: number[], key: number): number {
   const n = arr.length;
   const lg = parseInt((Math.log(n - 1) / Math.log(2)).toString(), 2) + 1;
 
@@ -18,6 +18,5 @@ export default function MetaBinarySearch(arr: number[], key: number): number {
   return arr[pos] === key ? pos : -1;
 }
 
-// test
 const A = [-2, 10, 100, 250, 32315];
-MetaBinarySearch(A, 250); //?
+console.log(metaBinarySearch(A, 250));

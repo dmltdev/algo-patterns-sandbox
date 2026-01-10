@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": false,
@@ -14,9 +15,5 @@
     "noImplicitAny": false,
     "noEmit": true
   },
-  "ts-node": {
-    "transpileOnly": true,
-    "files": true
-  },
-  "exclude": ["node_modules", "**/__tests__", "**/*.test.ts"]
+  "exclude": ["node_modules", "vitest.config.ts"]
 }

@@ -1,10 +1,10 @@
 import Benchmark from "benchmark";
 
-import linearSearch from "./LinearSearch/LinearSearch";
-import sentinelLinearSearch from "./SentinelLinearSearch/SentinelLinearSearch";
-import binarySearch from "./BinarySearch/BinarySearch";
-import metaBinarySearch from "./MetaBinarySearch/MetaBinarySearch";
-import exponentialSearch from "./ExponentialSearch/ExponentialSearch";
+import { linearSearch } from "./LinearSearch/LinearSearch";
+import { sentinelLinearSearch } from "./SentinelLinearSearch/SentinelLinearSearch";
+import { binarySearch } from "./BinarySearch/BinarySearch";
+import { metaBinarySearch } from "./MetaBinarySearch/MetaBinarySearch";
+import { exponentialSearch } from "./ExponentialSearch/ExponentialSearch";
 
 const suite = new Benchmark.Suite();
 

@@ -1,4 +1,5 @@
-import createHashSet from "./HashSet.ts";
+import { createHashSet } from "./HashSet.ts";
+import { describe, beforeEach, test, expect } from "vitest";
 
 describe("HashSet", () => {
   let set;

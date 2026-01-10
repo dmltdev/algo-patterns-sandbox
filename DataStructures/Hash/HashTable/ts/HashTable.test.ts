@@ -1,10 +1,17 @@
-import createHashTable from "./HashTable.ts";
+import { createHashTable } from "./HashTable.ts";
+import { describe, beforeEach, test, expect, afterAll, vi } from "vitest";
 
 describe("Hash Table", () => {
+  const consoleMock = vi.spyOn(console, "log").mockImplementation(() => {});
+
   let ht;
 
   beforeEach(() => {
     ht = createHashTable();
+  });
+
+  afterAll(() => {
+    consoleMock.mockReset();
   });
 
   test("Hashes the key", () => {
@@ -60,8 +67,6 @@ describe("Hash Table", () => {
   });
 
   test("Displays items", () => {
-    const mock = jest.spyOn(console, "log").mockImplementation(() => {});
-
     ht.set("apple", 50);
     ht.set("banana", 30);
     ht.set("orange", 70);
@@ -77,7 +82,5 @@ describe("Hash Table", () => {
     expect(console.log).toHaveBeenCalledWith(
       expect.stringContaining("[ orange: 70 ]")
     );
-
-    mock.mockRestore();
   });
 });

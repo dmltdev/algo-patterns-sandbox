@@ -38,7 +38,7 @@ function merge(left: number[], right: number[]): number[] {
   return [...sortedArr, ...left, ...right];
 }
 
-export default function mergeSort(arr: number[]): number[] {
+export function mergeSort(arr: number[]): number[] {
   if (arr.length <= 1) return arr;
 
   const mid = Math.floor(arr.length / 2);

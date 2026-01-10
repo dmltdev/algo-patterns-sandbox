@@ -8,7 +8,7 @@ Time complexity: O(n);
 Space complexity: O(1);
 */
 
-export default function boyerMooreVoting(nums: number[]): number {
+export function boyerMooreVoting(nums: number[]): number {
   let candidate = nums[0];
   let count = 1;
 

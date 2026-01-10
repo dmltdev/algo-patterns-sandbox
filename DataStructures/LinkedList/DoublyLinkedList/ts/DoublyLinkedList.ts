@@ -9,9 +9,9 @@ function assertNode<T>(node: null | ListNode<T>): node is ListNode<T> {
 }
 
 export default class LinkedList<T> {
-  private head: null | ListNode<T>;
-  private tail: null | ListNode<T>;
-  private length: number;
+  head: null | ListNode<T>;
+  tail: null | ListNode<T>;
+  length: number;
 
   constructor() {
     this.head = null;

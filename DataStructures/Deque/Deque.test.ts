@@ -1,4 +1,5 @@
-import { Deque } from "./Deque.ts";
+import { describe, test, it, expect, beforeEach } from "vitest";
+import { Deque } from "./Deque";
 
 describe("Data Structure: Deque", () => {
   let deque;

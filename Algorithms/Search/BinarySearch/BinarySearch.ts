@@ -1,4 +1,4 @@
-export default function BinarySearch(arr: number[], target: number): number {
+export function binarySearch(arr: number[], target: number): number {
   let left = 0;
   let right = arr.length - 1;
 

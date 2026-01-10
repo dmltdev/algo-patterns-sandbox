@@ -1,4 +1,5 @@
-import HashMap from "./HashMap";
+import { HashMap } from "./HashMap";
+import { describe, it, expect, beforeEach } from "vitest";
 
 describe("Hash Map", () => {
   let hashMap: HashMap;

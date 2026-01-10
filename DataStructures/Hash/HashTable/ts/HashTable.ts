@@ -1,7 +1,7 @@
-export type Key = string;
-export type Value = string | number;
+type Key = string;
+type Value = string | number;
 
-export default function createHashTable() {
+export function createHashTable() {
   let table: Array<Array<[Key, Value]>> = new Array(127);
   let size: number = 0;
 

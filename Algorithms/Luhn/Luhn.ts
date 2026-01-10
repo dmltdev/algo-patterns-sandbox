@@ -45,4 +45,4 @@ export default function validateCreditCard(input: string | number): boolean {
   return total % 10 === 0;
 }
 
-validateCreditCard(4532778771091795) //?
+console.log(validateCreditCard(4532778771091795));

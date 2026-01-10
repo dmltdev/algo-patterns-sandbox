@@ -7,7 +7,7 @@ export class Node<T> {
   }
 }
 
-export default class SinglyLinkedList<T> {
+export class SinglyLinkedList<T> {
   public head: Node<T> | null;
   public next: Node<T> | null;
 

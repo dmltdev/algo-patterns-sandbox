@@ -1,4 +1,5 @@
-import CircularLinkedList from "./CircularLinkedList.ts";
+import { describe, beforeEach, it, expect } from "vitest";
+import { CircularLinkedList } from "./CircularLinkedList.ts";
 
 describe("CircularLinkedList", () => {
   let list;
@@ -80,8 +81,8 @@ describe("CircularLinkedList", () => {
 
   it("empty list is not circular", () => {
     expect(list.isCircular()).toBeFalsy();
-  })
-  
+  });
+
   it("linked list is truly circular", () => {
     list.insertAtHead(1);
     list.insertAtHead(2);

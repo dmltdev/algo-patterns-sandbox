@@ -2,7 +2,7 @@
 Use the exponential search only when the sequence is unbounded or when you know the value is likely to be among the first ones.
 Otherwise, use a binary search.
 */
-export default function ExponentialSearch(arr: number[], key: number): number {
+export function exponentialSearch(arr: number[], key: number): number {
   if (arr[0] === key) {
     return 0;
   }

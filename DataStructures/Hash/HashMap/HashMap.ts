@@ -9,7 +9,7 @@ Methods:
 - clear
 */
 
-export default class HashMap {
+export class HashMap {
   private _storage: { [key: number]: [string, number][] };
 
   constructor() {
@@ -55,7 +55,7 @@ export default class HashMap {
     for (const [storedKey, storedValue] of this._storage[hash]) {
       if (storedKey === key) {
         return storedValue;
-      } 
+      }
     }
 
     return undefined;

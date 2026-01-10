@@ -1,4 +1,5 @@
-import twoCrystallBalls from "./TwoCrystalBalls"
+import { twoCrystallBalls } from "./TwoCrystalBalls";
+import { describe, it, expect } from "vitest";
 
 describe("Two Crystall Balls Problem", () => {
   it("should return -1 when there are no breaks", () => {
