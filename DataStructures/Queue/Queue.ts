@@ -27,10 +27,10 @@ export class Queue<T = unknown> {
 
     if (!this.tail) {
       this.tail = this.head = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
     }
-
-    this.tail.next = node;
-    this.tail = node;
 
     this.length++;
   }
